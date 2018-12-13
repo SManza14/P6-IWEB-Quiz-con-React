@@ -9,7 +9,7 @@ export default class Content extends React.Component{
                 <div>
                     <div className='question'><b>{this.props.question.question}</b></div>
                     <div className='answer'><input className='entrada' type={"text"} value={this.props.question.userAnswer || ''} onChange={(e) => {
-                        this.props.onQuestionAnswer(e.target.value);
+                        this.props.ContentQuestionAnswer(e.target.value);
                     }}/>
                     </div>
                 </div>

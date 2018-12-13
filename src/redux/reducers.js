@@ -34,6 +34,8 @@ function currentQuestion(state = 0, action = {}){
     switch(action.type){
         case CHANGE_QUESTION:
             return action.currentQuestion;
+        case RESET:
+            return currentQuestion(0);
         default:
             return state;
     }

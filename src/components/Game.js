@@ -32,7 +32,15 @@ export default class Game extends React.Component{
                 <nav className='navBar'><h1>The Quiz Site</h1></nav>
                 <div className='msg'><p><b>Enhorabuena, has acertado {this.props.score} preguntas.</b></p></div>
                 <div><button className='backButton' onClick={() => {
-                    this.props.onReset(this.props.questions)}}>Volver</button>
+                    fetch('https://quiz2019.herokuapp.com/api/quizzes/random10wa?token=a3c6bd8e8242dd2b6baa')
+                        .then(function(response){
+                            return response.json();
+                        })
+                        .then(quizJson =>{
+                            this.props.onReset(quizJson);
+                        })
+                        .catch(error => console.log('Error extrayendo los datos del servidor.', error));
+                    }}>Play again</button>
                 </div>
             </div>
         }else {
